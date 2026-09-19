@@ -1,0 +1,11 @@
+MAPA DAS IGREJAS — ADEB
+
+O sistema agora está organizado como um projeto Vite.
+Consulte README.md para estrutura, execução e publicação.
+
+Iniciar: npm run dev
+Gerar dist: npm run build
+Gerar docs: npm run build:docs
+
+O arquivo mapa-igrejas.html foi preservado como versão anterior.
+A conexão de dados existente continua dependendo do ambiente do Claude.

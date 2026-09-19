@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f6fbff"><title>Mapa das Igrejas · ADEB</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap"><style>
+:root{--ink:#17191c;--ink-muted:#607184;--ink-faint:#738395;--border:#dfe8f0;--blue:#35a1e4;--gold:#ffe522;--surface:#fff;--live:#278ece;--live-soft:#eef9ff;--danger:#956421;--danger-soft:#fff6df}
+*{box-sizing:border-box}body{margin:0;background:#f6fbff;color:var(--ink);font-family:"DM Sans",Arial,sans-serif;font-size:14px}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #1676c5;outline-offset:4px}[hidden]{display:none!important}.topbar{height:94px;display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1220px;margin:auto;padding:0 28px}.brand{display:flex;align-items:center;gap:18px}.brand-icon{width:48px;height:48px;border-radius:15px;background:#e9f6ff;display:grid;place-items:center;color:#238cd1}.brand-icon svg{width:30px;height:30px}.brand h1{font-size:16px;margin:0 0 4px;font-weight:700}.tagline{margin:0;color:var(--ink-muted);font-size:11px}.sync{display:flex;align-items:center;gap:12px}.badge{display:inline-flex;align-items:center;gap:7px;padding:9px 13px;border:1px solid #c5e7fc;border-radius:30px;font-size:11px;color:#137bc7;background:#f8fcff}.dot{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px #e0f3fb}.badge-error{color:var(--danger);background:var(--danger-soft);border-color:#efe1c2}.sync-time{font-size:11px;color:var(--ink-muted)}.back{background:#fff;border:1px solid var(--border);border-radius:8px;padding:8px 15px;color:var(--ink-muted)}
+body[data-view="home"]{background:radial-gradient(ellipse at 100% 42%,#daf2ff 0,transparent 46%),radial-gradient(ellipse at 0 90%,#fffde3 0,transparent 37%),#f8fcff}body[data-view="home"]:before{content:"";position:fixed;inset:0;background-image:linear-gradient(#dae8f326 1px,transparent 1px),linear-gradient(90deg,#dae8f326 1px,transparent 1px);background-size:74px 74px;pointer-events:none}.landing{position:relative;max-width:1220px;margin:auto;padding:64px 28px 26px}.hero{display:grid;grid-template-columns:1.55fr 1fr;gap:78px;align-items:center;min-height:492px}.eyebrow{color:#209bec;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin:0 0 20px}.hero h2{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(44px,4.9vw,66px);font-weight:400;line-height:1.04;letter-spacing:-1.7px;margin:0 0 24px}.intro-desc{font-size:16px;line-height:1.85;color:#465666;max-width:650px;margin:0 0 32px}.primary{border:0;border-radius:7px;background:var(--blue);color:white;font-weight:600;font-size:13px;padding:17px 24px;box-shadow:0 14px 26px #319bce25;transition:background .2s,transform .2s}.primary:hover{background:#248dcc;transform:translateY(-2px)}.monitor{position:relative;border:1px solid #fff;border-radius:30px;background:#ffffffa8;padding:22px;box-shadow:0 30px 65px #476c8a19}.monitor-inner{border:1px solid #cdeaff;border-radius:23px;padding:12px 10px 10px;background:linear-gradient(135deg,#fff9,#edfbfc88)}.layers{width:100%;height:270px;display:block}.monitor-title{text-align:center;font-size:14px;font-weight:600;display:flex;gap:9px;align-items:center;justify-content:center;margin:12px 0 22px}.mini-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.mini-stat{border:1px solid #e3ebf1;background:#ffffffba;border-radius:13px;text-align:center;padding:15px 4px}.mini-stat strong{display:block;font-size:23px;font-weight:600;margin-bottom:5px}.mini-stat span{font-size:10px;color:var(--ink-muted)}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:80px}.feature{padding:19px;border:1px solid #e5e9eb;border-radius:17px;background:#ffffffb8;text-align:left;color:var(--ink);transition:border-color .2s}.feature:hover{border-color:var(--blue)}.feature-top{display:flex;justify-content:space-between;align-items:center;color:#259feb;font-size:11px}.feature-icon{width:26px;height:26px;border:1px solid #dbe3c7;border-radius:8px;background:#fff9ce;display:grid;place-items:center}.feature h3{font-size:14px;font-weight:600;margin:14px 0 8px}.feature p{font-size:12px;color:var(--ink-muted);line-height:1.7;margin:0}
+body[data-view="dashboard"] .topbar{max-width:none;background:white;border-bottom:1px solid var(--border);height:73px;padding:0 32px}.dashboard{padding:24px 22px 30px;max-width:1920px;margin:auto}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-bottom:22px}.stat{padding:17px 20px;background:white;border:1px solid var(--border);border-top:3px solid var(--blue);border-radius:12px;min-height:86px}.stat:nth-child(2){border-top-color:#2874c8}.stat:nth-child(3){border-top-color:var(--gold)}.stat:nth-child(4){border-top-color:#191919}.stat-value{font-size:24px;font-weight:600;line-height:1.2}.stat-label{font-size:12px;color:var(--ink-muted);margin-top:5px}.tabs{display:flex;gap:8px;overflow:auto;margin:0 -22px 24px;padding:0 22px;background:linear-gradient(transparent,#eaf8ff);border-bottom:1px solid var(--border)}.tab-btn{white-space:nowrap;border:1px solid #d5e7f4;border-radius:10px 10px 5px 5px;background:linear-gradient(#fff,#edf8ff);padding:11px 20px;color:#50687a;font-size:13px;font-weight:600}.tab-btn.active{color:#087dce;box-shadow:inset 0 -3px var(--blue)}.tab-btn[data-tab="setores"]{background:var(--gold);border-color:#ebd300;color:#087dce}.tab-panel{display:none}.tab-panel.active{display:block}.chart-card{border:1px solid var(--border);border-radius:13px;background:white;padding:22px 24px;margin-bottom:16px}.chart-title{font-size:14px;font-weight:500;margin:0 0 5px}.chart-sub{font-size:12px;color:var(--ink-muted);margin:0 0 22px}.chart-box{position:relative;height:310px}.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}.chart-row .chart-box{height:220px}.empty{height:100%;display:grid;place-content:center;text-align:center;color:var(--ink-muted);gap:10px;background:repeating-linear-gradient(to top,transparent 0,transparent 51px,#e8f1f8 52px);border-bottom:1px solid var(--border)}.empty strong{font-size:14px;font-weight:500}.empty span{font-size:12px;background:#fff;padding:5px}.mono-num{font-variant-numeric:tabular-nums}.connection-note{font-size:12px;color:var(--ink-muted);line-height:1.7;margin:4px 0 22px}footer{text-align:center;color:var(--ink-faint);font-size:11px;padding:23px;border-top:1px solid var(--border);line-height:1.7}.foot-brand{margin-top:8px}canvas{max-width:100%}
+@media(min-width:1600px){.landing{padding-top:100px}.features{margin-top:100px}}@media(max-width:900px){.hero{gap:30px;grid-template-columns:1.3fr 1fr}.hero h2{font-size:48px}.landing{padding-top:35px}.layers{height:220px}.stats{grid-template-columns:repeat(2,1fr)}.sync-time{display:none}.features{margin-top:45px}}@media(max-width:650px){.topbar,body[data-view="dashboard"] .topbar{padding:0 18px;height:80px}.brand{gap:10px}.brand h1{font-size:14px}.brand-icon{width:38px;height:38px}.badge{padding:8px;font-size:10px}.landing{padding:30px 20px}.hero{grid-template-columns:1fr;gap:36px}.hero h2{font-size:46px}.intro-desc{font-size:15px}.monitor{max-width:390px;width:100%;margin:auto}.features{grid-template-columns:1fr;margin-top:35px}.feature{padding:17px}.feature h3{margin-top:7px}.dashboard{padding:20px 14px}.stats{gap:10px}.stat{padding:15px 12px}.stat-value{font-size:20px}.stat-label{font-size:11px}.tabs{margin-left:-14px;margin-right:-14px;padding:0 14px}.chart-row{grid-template-columns:1fr;gap:0}.chart-card{padding:19px 15px}.chart-box{height:300px}.sync{gap:6px}body[data-view="dashboard"] .badge{display:none}}@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style></head><body data-view="home">
+<header class="topbar"><div class="brand"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 2v9m-4-5h8M5 29V17l11-7 11 7v12M2 29h28M12 29v-9h8v9M8 18v4m16-4v4"/><path d="M16 2v9m-4-5h8" stroke="#e4c600"/></svg></span><div><h1>Mapa das Igrejas</h1><p class="tagline">ADEB · Painel de cadastros</p></div></div><div class="sync"><span class="sync-time" id="sync-time"></span><span class="badge" id="sync-badge"><span class="dot"></span>Dados do Forms</span><button class="back" id="back-home" hidden>← Início</button></div></header>
+<main id="landing" class="landing"><section class="hero"><div><p class="eyebrow">Painel de acompanhamento</p><h2>Cadastros, igrejas e<br>conexões em um só lugar.</h2><p class="intro-desc">Acompanhe as respostas recebidas pelo Forms, identifique os setores com mais cadastros e conheça os cargos, os departamentos e o engajamento da comunidade.</p><button class="primary" data-open="geral">Abrir dashboards <span aria-hidden="true">↗</span></button></div><aside class="monitor" aria-label="Resumo do monitoramento"><div class="monitor-inner"><svg class="layers" viewBox="0 0 340 270" fill="none" aria-hidden="true"><defs><linearGradient id="a" x1="60" y1="130" x2="270" y2="230" gradientUnits="userSpaceOnUse"><stop stop-color="#beeaff"/><stop offset="1" stop-color="#278fce"/></linearGradient><linearGradient id="b" x1="120" y1="80" x2="250" y2="220" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset="1" stop-color="#e0f5ff"/></linearGradient><filter id="shadow"><feGaussianBlur stdDeviation="10"/></filter></defs><ellipse cx="170" cy="235" rx="102" ry="13" fill="#339bc8" opacity=".15" filter="url(#shadow)"/><path d="M52 165L153 110Q170 100 188 110L288 165V185Q288 192 276 199L188 247Q170 257 152 247L63 199Q52 193 52 185Z" fill="url(#a)"/><path d="M63 153L153 104Q170 94 188 104L277 153Q299 165 277 177L188 226Q170 236 152 226L63 177Q42 165 63 153Z" fill="url(#b)" stroke="#65b8e6" stroke-width="1.4"/><path d="M52 85v72M288 85v72M170 149v66" stroke="#abc6d7" stroke-dasharray="4 4"/><path d="M52 75L153 20Q170 10 188 20L288 75V93Q288 100 276 107L188 155Q170 165 152 155L63 107Q52 101 52 93Z" fill="#ffffffbb" stroke="#b2c4d0" stroke-width="1.3"/><path d="M63 63L153 14Q170 4 188 14L277 63Q299 75 277 87L188 136Q170 146 152 136L63 87Q42 75 63 63Z" fill="url(#b)" stroke="#a5b9c8" stroke-width="1.5"/><path d="M157 63v20m-10-10h20" stroke="#e6ce24" stroke-width="3" stroke-linecap="round"/></svg><p class="monitor-title"><span class="dot"></span><span id="monitor-state">Visão integrada da comunidade</span></p><div class="mini-stats"><div class="mini-stat"><strong id="home-total">—</strong><span>cadastros</span></div><div class="mini-stat"><strong id="home-setores">—</strong><span>setores</span></div><div class="mini-stat"><strong>10 min</strong><span>sincronização*</span></div></div></div></aside></section><section class="features" aria-label="Explore os painéis"><button class="feature" data-open="geral"><div class="feature-top">01<span class="feature-icon" aria-hidden="true">↗</span></div><h3>Perfil da comunidade</h3><p>Conheça os cargos ministeriais e o perfil dos cadastros recebidos.</p></button><button class="feature" data-open="departamentos"><div class="feature-top">02<span class="feature-icon" aria-hidden="true">↗</span></div><h3>Participação nos departamentos</h3><p>Uma visão das respostas de UFADEB, UMADEB, UNAADEB e UDVADEB.</p></button><button class="feature" data-open="setores"><div class="feature-top">03<span class="feature-icon" aria-hidden="true">↗</span></div><h3>Cadastros por setor</h3><p>Identifique os setores com maior participação em um painel único.</p></button></section></main>
+<main id="dashboard" class="dashboard" hidden><div class="stats"><div class="stat"><div class="stat-value mono-num" id="stat-total">—</div><div class="stat-label">Total de cadastros</div></div><div class="stat"><div class="stat-value" id="stat-setor">—</div><div class="stat-label" id="stat-setor-sub">Setor com mais cadastros</div></div><div class="stat"><div class="stat-value" id="stat-cargo">—</div><div class="stat-label" id="stat-cargo-sub">Cargo ministerial mais comum</div></div><div class="stat"><div class="stat-value mono-num" id="stat-politica">—</div><div class="stat-label">Se interessam por política</div></div></div><div class="tabs" role="tablist" aria-label="Análises dos cadastros"><button class="tab-btn active" data-tab="geral">Visão Geral</button><button class="tab-btn" data-tab="departamentos">Departamentos</button><button class="tab-btn" data-tab="engajamento">Engajamento</button><button class="tab-btn" data-tab="setores">⌖ Setores</button></div>
+<div class="tab-panel active" data-panel="geral"><section class="chart-card"><h2 class="chart-title">Cadastros por setor</h2><p class="chart-sub">Distribuição dos cadastros recebidos pelo formulário</p><div class="chart-box"><canvas id="chart-overview" role="img" aria-label="Cadastros por setor" hidden></canvas><div class="empty"><strong>Aguardando dados da planilha</strong><span>Os gráficos aparecem após a conexão.</span></div></div></section><section class="chart-card"><h2 class="chart-title">Cargo ministerial</h2><p class="chart-sub">Quantidade de cadastros por cargo</p><div class="chart-box"><canvas id="chart-cargo" role="img" aria-label="Cargo ministerial" hidden></canvas><div class="empty"><strong>Aguardando dados da planilha</strong><span>Os gráficos aparecem após a conexão.</span></div></div></section><div class="chart-row"><section class="chart-card"><h2 class="chart-title">São evangélicos?</h2><p class="chart-sub">Perfil religioso dos cadastros que responderam</p><div class="chart-box"><canvas id="chart-evangelico" role="img" aria-label="São evangélicos?" hidden></canvas><div class="empty"><strong>Aguardando dados da planilha</strong><span>Os gráficos aparecem após a conexão.</span></div></div></section><section class="chart-card"><h2 class="chart-title">Interesse por política</h2><p class="chart-sub">Participação entre os cadastros que responderam</p><div class="chart-box"><canvas id="chart-politica" role="img" aria-label="Interesse por política" hidden></canvas><div class="empty"><strong>Aguardando dados da planilha</strong><span>Os gráficos aparecem após a conexão.</span></div></div></section></div></div><div class="tab-panel" data-panel="setores"><section class="chart-card"><h2 class="chart-title">Cadastros por setor</h2><p class="chart-sub">Ranking dos setores com respostas no formulário</p><div class="chart-box" style="height:480px"><canvas id="chart-setores" role="img" aria-label="Cadastros por setor" hidden></canvas><div class="empty"><strong>Aguardando dados da planilha</strong><span>Os gráficos aparecem após a conexão.</span></div></div></section></div><div class="tab-panel" data-panel="departamentos"><section class="chart-card"><h2 class="chart-title">Participação nos departamentos</h2><p class="chart-sub">UFADEB, UMADEB, UNAADEB, UDVADEB e sem departamento</p><div class="chart-box" style="height:360px"><canvas id="chart-departamentos" role="img" aria-label="Participação nos departamentos" hidden></canvas><div class="empty"><strong>Aguardando dados da planilha</strong><span>Os gráficos aparecem após a conexão.</span></div></div></section></div><div class="tab-panel" data-panel="engajamento"><section class="chart-card"><h2 class="chart-title">Interesse por política</h2><p class="chart-sub">Distribuição das respostas Sim e Não</p><div class="chart-box" style="height:320px"><canvas id="chart-engajamento" role="img" aria-label="Interesse por política" hidden></canvas><div class="empty"><strong>Aguardando dados da planilha</strong><span>Os gráficos aparecem após a conexão.</span></div></div></section></div></main><footer><span id="footer-status" role="status">Conectando à planilha…</span><div class="foot-brand">Mapa das Igrejas · ADEB · <span id="year"></span> <span id="refresh-note">· *Atualização a cada 10 minutos quando conectado.</span></div></footer><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script>
+(function(){
+  var FILE_ID = '1mUPGlFavQwKwlpTVH4QuVLSqcgVFJvq6cOthSIOQ8mA';
+
+  var tabBtns = document.querySelectorAll('.tab-btn');
+  var panels = document.querySelectorAll('.tab-panel');
+  document.getElementById('year').textContent = new Date().getFullYear();
+  function selectTab(name){
+    tabBtns.forEach(function(btn){var active=btn.dataset.tab===name;btn.classList.toggle('active',active);btn.setAttribute('aria-selected',String(active));btn.tabIndex=active?0:-1;});
+    panels.forEach(function(panel){panel.classList.toggle('active',panel.dataset.panel===name);});
+    if(typeof charts!=='undefined') requestAnimationFrame(function(){Object.keys(charts).forEach(function(id){charts[id].resize();});});
+  }
+  tabBtns.forEach(function(btn,i){
+    btn.id='tab-'+btn.dataset.tab;btn.setAttribute('role','tab');btn.setAttribute('aria-controls','panel-'+btn.dataset.tab);
+    btn.addEventListener('click',function(){selectTab(btn.dataset.tab);});
+    btn.addEventListener('keydown',function(e){var next;if(e.key==='ArrowRight')next=(i+1)%tabBtns.length;if(e.key==='ArrowLeft')next=(i+tabBtns.length-1)%tabBtns.length;if(e.key==='Home')next=0;if(e.key==='End')next=tabBtns.length-1;if(next!==undefined){e.preventDefault();tabBtns[next].focus();selectTab(tabBtns[next].dataset.tab);}});
+  });
+  panels.forEach(function(panel){panel.id='panel-'+panel.dataset.panel;panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby','tab-'+panel.dataset.panel);});
+  var opener;
+  document.querySelectorAll('[data-open]').forEach(function(btn){btn.addEventListener('click',function(){opener=btn;document.body.dataset.view='dashboard';document.getElementById('landing').hidden=true;document.getElementById('dashboard').hidden=false;document.getElementById('back-home').hidden=false;selectTab(btn.dataset.open);window.scrollTo(0,0);document.getElementById('tab-'+btn.dataset.open).focus({preventScroll:true});});});
+  document.getElementById('back-home').addEventListener('click',function(){document.body.dataset.view='home';document.getElementById('landing').hidden=false;document.getElementById('dashboard').hidden=true;this.hidden=true;window.scrollTo(0,0);if(opener)opener.focus({preventScroll:true});});
+  selectTab('geral');
+
+  // ---------- helpers ----------
+  function norm(s){
+    return String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').trim();
+  }
+  function pad(n){ return String(n).padStart(2,'0'); }
+  function fmtClock(ts){
+    var d = new Date(ts);
+    return pad(d.getHours())+':'+pad(d.getMinutes());
+  }
+
+  function splitRow(line){
+    var t = line.trim().replace(/^\|/, '').replace(/\|$/, '');
+    return t.split('|').map(function(s){ return s.trim(); });
+  }
+
+  var ALIGN_RE = /^\|(\s*:-:\s*\|)+\s*$/;
+
+  function parseBlocks(text){
+    var lines = text.split('\n');
+    var blocks = [];
+    for(var i=0;i<lines.length;i++){
+      if(ALIGN_RE.test(lines[i].trim())){
+        var headers = splitRow(lines[i+1] || '');
+        var data = [];
+        var j = i+2;
+        while(j<lines.length && !ALIGN_RE.test((lines[j]||'').trim())){
+          var row = lines[j];
+          if(row && row.trim().indexOf('|')===0){
+            var cells = splitRow(row);
+            if(cells.some(function(c){ return c.trim()!==''; })) data.push(cells);
+          }
+          j++;
+        }
+        blocks.push({headers: headers, data: data});
+        i = j-1;
+      }
+    }
+    return blocks;
+  }
+
+  function findIdx(headers, keywords){
+    for(var k=0;k<keywords.length;k++){
+      for(var h=0;h<headers.length;h++){
+        if(norm(headers[h]).indexOf(keywords[k])!==-1) return h;
+      }
+    }
+    return -1;
+  }
+
+  function setorLabel(raw){
+    if(!raw) return 'Não informado';
+    var t = raw.trim();
+    if(!t) return 'Não informado';
+    var low = norm(t);
+    var junk = ['nao tenho','nenhum','nao','xxx','catolica','membro','nenhuma'];
+    if(junk.indexOf(low)!==-1) return 'Não informado';
+    var m = t.match(/(\d{1,3})/);
+    if(m) return 'Setor '+parseInt(m[1],10);
+    return t.length>26 ? t.slice(0,26)+'…' : t;
+  }
+
+  function cargoPrimary(raw){
+    if(!raw) return null;
+    var up = raw.toUpperCase();
+    if(up.indexOf('PASTOR')!==-1) return 'Pastor';
+    if(up.indexOf('OBREIRO')!==-1) return 'Obreiro';
+    if(up.indexOf('MEMBRO')!==-1) return 'Membro';
+    return 'Outro';
+  }
+
+  function deptoList(raw){
+    if(!raw) return [];
+    return raw.split(/[,/]/).map(function(s){ return s.trim().toUpperCase(); }).filter(Boolean).map(function(s){
+      if(s.indexOf('UFADEB')!==-1) return 'UFADEB';
+      if(s.indexOf('UMADEB')!==-1) return 'UMADEB';
+      if(s.indexOf('UNAADEB')!==-1) return 'UNAADEB';
+      if(s.indexOf('UDVADEB')!==-1) return 'UDVADEB';
+      if(s.indexOf('NENHUM')!==-1 || s.indexOf('NAO')!==-1 || s==='') return 'Nenhum';
+      return null;
+    }).filter(Boolean);
+  }
+
+  function simNao(raw){
+    if(!raw) return null;
+    var up = raw.toUpperCase();
+    var hasSim = up.indexOf('SIM')!==-1;
+    var hasNao = up.indexOf('NÃO')!==-1 || up.indexOf('NAO')!==-1;
+    if(hasSim) return 'Sim';
+    if(hasNao) return 'Não';
+    return null;
+  }
+
+  function parseRecords(fileContent){
+    var blocks = parseBlocks(fileContent);
+    var records = [];
+    blocks.forEach(function(block){
+      var idxSetor = findIdx(block.headers, ['setor','congregac']);
+      var idxCargo = findIdx(block.headers, ['cargo']);
+      var idxDepto = findIdx(block.headers, ['departamento']);
+      var idxPolitica = findIdx(block.headers, ['politica']);
+      var idxEvangelico = findIdx(block.headers, ['evangelico']);
+      block.data.forEach(function(cells){
+        records.push({
+          setor: idxSetor!==-1 ? cells[idxSetor] : '',
+          cargo: idxCargo!==-1 ? cells[idxCargo] : '',
+          depto: idxDepto!==-1 ? cells[idxDepto] : '',
+          politica: idxPolitica!==-1 ? cells[idxPolitica] : '',
+          evangelico: idxEvangelico!==-1 ? cells[idxEvangelico] : ''
+        });
+      });
+    });
+    return records;
+  }
+
+  function tally(records, fn){
+    var map = {};
+    records.forEach(function(r){
+      var vals = fn(r);
+      if(vals==null) return;
+      if(!Array.isArray(vals)) vals=[vals];
+      vals.forEach(function(v){ if(v){ map[v]=(map[v]||0)+1; } });
+    });
+    return map;
+  }
+  function sortedEntries(map){
+    return Object.keys(map).map(function(k){ return [k, map[k]]; }).sort(function(a,b){ return b[1]-a[1]; });
+  }
+
+  // ---------- theme colors ----------
+  function cssVar(name){
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  }
+
+  // ---------- charts ----------
+  var charts = {};
+  function upsertBar(id, labels, values, horizontal){
+    var ink = cssVar('--ink-muted'), grid = cssVar('--border'), blue = cssVar('--blue');
+    var cfg = {
+      type: 'bar',
+      data: { labels: labels, datasets: [{ data: values, backgroundColor: blue, borderRadius: 4, maxBarThickness: 48 }] },
+      options: {
+        indexAxis: horizontal ? 'y' : 'x',
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display:false }, tooltip: { padding:10 } },
+        scales: {
+          x: { grid:{ color: horizontal? grid : 'transparent' }, ticks:{ color: ink, font:{family:'"DM Sans"'} }, beginAtZero:true },
+          y: { grid:{ color: horizontal? 'transparent' : grid }, ticks:{ color: ink, font:{family:'"DM Sans"'} } }
+        }
+      }
+    };
+    if(charts[id]){
+      charts[id].data.labels = labels;
+      charts[id].data.datasets[0].data = values;
+      charts[id].update();
+    } else {
+      charts[id] = new Chart(document.getElementById(id).getContext('2d'), cfg);
+    }
+  }
+  function upsertDonut(id, labels, values){
+    var blue = cssVar('--blue'), gold = cssVar('--gold'), ink = cssVar('--ink-muted'), surface = cssVar('--surface');
+    var cfg = {
+      type: 'doughnut',
+      data: { labels: labels, datasets: [{ data: values, backgroundColor:[blue, gold], borderColor: surface, borderWidth:3 }] },
+      options: {
+        responsive:true, maintainAspectRatio:false, cutout:'62%',
+        plugins: { legend: { position:'bottom', labels:{ color: ink, font:{family:'"DM Sans"'}, boxWidth:12, padding:14 } } }
+      }
+    };
+    if(charts[id]){
+      charts[id].data.labels = labels;
+      charts[id].data.datasets[0].data = values;
+      charts[id].update();
+    } else {
+      charts[id] = new Chart(document.getElementById(id).getContext('2d'), cfg);
+    }
+  }
+
+  function render(fileContent){
+    var records = parseRecords(fileContent);
+    var total = records.length;
+
+    var bySetor = tally(records, function(r){ return setorLabel(r.setor); });
+    var setorEntries = sortedEntries(bySetor).filter(function(e){ return e[0]!=='Não informado'; });
+    var topSetor = setorEntries[0];
+
+    var byCargo = tally(records, function(r){ return cargoPrimary(r.cargo); });
+    var cargoEntries = sortedEntries(byCargo);
+    var topCargo = cargoEntries[0];
+
+    var byDepto = tally(records, function(r){ return deptoList(r.depto); });
+
+    var byPolitica = tally(records, function(r){ return simNao(r.politica); });
+    var politicaAnswered = (byPolitica['Sim']||0) + (byPolitica['Não']||0);
+    var politicaPct = politicaAnswered ? Math.round(100*(byPolitica['Sim']||0)/politicaAnswered) : null;
+
+    var byEvangelico = tally(records, function(r){ return simNao(r.evangelico); });
+
+    // stat cards
+    document.getElementById('stat-total').textContent = total.toLocaleString('pt-BR');
+    document.getElementById('home-total').textContent = total.toLocaleString('pt-BR');
+    document.getElementById('home-setores').textContent = setorEntries.length;
+    document.getElementById('monitor-state').textContent = 'Monitoramento ativo';
+    document.querySelectorAll('canvas').forEach(function(c){c.hidden=false;c.nextElementSibling.hidden=true;});
+    if(typeof Chart==='undefined'){document.querySelectorAll('canvas').forEach(function(c){c.hidden=true;c.nextElementSibling.hidden=false;c.nextElementSibling.querySelector('strong').textContent='Gráficos indisponíveis';c.nextElementSibling.querySelector('span').textContent='Verifique a conexão e recarregue a página.';});return;}
+    document.getElementById('stat-setor').textContent = topSetor ? topSetor[0] : '—';
+    document.getElementById('stat-setor-sub').textContent = topSetor ? (topSetor[1]+' cadastros neste setor') : 'Setor com mais cadastros';
+    document.getElementById('stat-cargo').textContent = topCargo ? topCargo[0] : '—';
+    document.getElementById('stat-cargo-sub').textContent = topCargo ? (topCargo[1]+' de '+total+' cadastros') : 'Cargo ministerial mais comum';
+    document.getElementById('stat-politica').textContent = politicaPct!=null ? (politicaPct+'%') : '—';
+
+    // charts
+    var cargoOrder = ['Membro','Obreiro','Pastor','Outro'].filter(function(k){ return byCargo[k]; });
+    upsertBar('chart-cargo', cargoOrder, cargoOrder.map(function(k){ return byCargo[k]; }), true);
+
+    upsertDonut('chart-evangelico', ['Sim','Não'], [byEvangelico['Sim']||0, byEvangelico['Não']||0]);
+
+    var topSetores = setorEntries;
+    upsertBar('chart-overview', topSetores.map(function(e){return e[0];}),topSetores.map(function(e){return e[1];}),false);
+    document.getElementById('chart-setores').parentElement.style.height=Math.max(340,topSetores.length*35)+'px';
+    upsertBar('chart-setores', topSetores.map(function(e){ return e[0]; }), topSetores.map(function(e){ return e[1]; }), true);
+
+    var deptoOrder = ['UFADEB','UMADEB','UNAADEB','UDVADEB','Nenhum'].filter(function(k){ return byDepto[k]; });
+    upsertBar('chart-departamentos', deptoOrder, deptoOrder.map(function(k){ return byDepto[k]; }), false);
+
+    upsertDonut('chart-engajamento', ['Sim','Não'], [byPolitica['Sim']||0, byPolitica['Não']||0]);
+    upsertDonut('chart-politica', ['Sim','Não'], [byPolitica['Sim']||0, byPolitica['Não']||0]);
+  }
+
+  function setStatus(text, tone){
+    var el = document.getElementById('footer-status');
+    var badge = document.getElementById('sync-badge');
+    el.textContent = text;
+    if(badge){
+      badge.classList.remove('badge-live','badge-error');
+      badge.classList.add(tone==='error' ? 'badge-error' : 'badge-live');
+      badge.innerHTML = tone==='error' ? 'Sem conexão' : '<span class="dot"></span>Ao vivo';
+    }
+  }
+
+  async function wire(){
+    var mcp;
+    try{ mcp = window.claude ? await window.claude.use('mcp') : null; } catch(e){ mcp = null; }
+
+    if(!mcp){
+      setStatus('Abra este painel dentro do Claude para ver os dados ao vivo da planilha.', 'error');
+      return;
+    }
+
+    mcp.watchTool('Google Drive', 'read_file_content',
+      { fileId: FILE_ID, includeComments: false },
+      function(ev){
+        if(ev.type==='data'){
+          var payload = ev.result.payload;
+          var content = (payload && payload.fileContent) ? payload.fileContent : (typeof payload==='string' ? payload : '');
+          if(content){
+            render(content);
+            var stampedAt = (ev.result.cache && ev.result.cache.storedAt) ? ev.result.cache.storedAt : Date.now();
+            document.getElementById('sync-time').textContent = 'última sincronização '+fmtClock(stampedAt);
+            setStatus('Conectado à planilha "Formulário das Igrejas - ADEB". Atualiza automaticamente.', 'live');
+          } else {
+            setStatus('A planilha respondeu sem conteúdo legível.', 'error');
+          }
+        } else {
+          var err = ev.error || {};
+          var msg;
+          switch(err.code){
+            case 'needs_reauth':
+              msg='Reconecte o Google Drive em claude.ai → Configurações → Conectores.'; break;
+            case 'server_not_connected':
+              msg='O Google Drive não está conectado nesta conta.'; break;
+            case 'consent_required':
+              msg='Autorize o acesso ao Google Drive quando o Claude perguntar.'; break;
+            case 'not_in_manifest':
+            case 'blocked_by_policy':
+              msg='O acesso a esta planilha está bloqueado para este painel.'; break;
+            case 'tool_error':
+              msg='Não consegui ler a planilha. Confira se ela ainda está compartilhada com sua conta.'; break;
+            case 'server_unavailable':
+              msg='Google Drive temporariamente indisponível, tentando de novo…'; break;
+            default:
+              msg='Não foi possível atualizar agora.';
+          }
+          setStatus(msg, 'error');
+        }
+      },
+      { refetchInterval: 600000 }
+    );
+  }
+
+  wire();
+})();
+</script>
+
+</body></html>

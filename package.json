@@ -1,0 +1,22 @@
+{
+  "name": "mapa-igrejas",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:docs": "vite build --outDir docs",
+    "preview": "vite preview",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "chart.js": "^4.4.4"
+  },
+  "devDependencies": {
+    "vite": "^8.0.0",
+    "eslint": "^9.0.0",
+    "@eslint/js": "^9.0.0",
+    "globals": "^16.0.0"
+  }
+}

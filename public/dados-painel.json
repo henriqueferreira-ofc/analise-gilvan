@@ -1,0 +1,103 @@
+{
+  "updatedAt": "2026-09-19T20:26:00.347412+00:00",
+  "source": "Formulário das Igrejas - ADEB.xlsx",
+  "countingBasis": "Uma unidade por aba de respostas da planilha. As abas representam cidades/setores e podem reunir várias congregações.",
+  "churches": [
+    {
+      "name": "VAL PARAISO",
+      "responses": 3
+    },
+    {
+      "name": "SEDE",
+      "responses": 0
+    },
+    {
+      "name": "CIDADE OCIDENTAL",
+      "responses": 2
+    },
+    {
+      "name": "SAMAMBAIA-29",
+      "responses": 62
+    },
+    {
+      "name": "ASA NORTE",
+      "responses": 0
+    },
+    {
+      "name": "CEILÂNDIA-2",
+      "responses": 0
+    },
+    {
+      "name": "NÚCLEO BANDEIRANTES",
+      "responses": 14
+    },
+    {
+      "name": "PARANOÁ",
+      "responses": 5
+    },
+    {
+      "name": "BRAZLÂNDIA",
+      "responses": 0
+    },
+    {
+      "name": "SOBRADINHO",
+      "responses": 11
+    },
+    {
+      "name": "PLANALTINA",
+      "responses": 0
+    },
+    {
+      "name": "RIACHO FUNDO",
+      "responses": 0
+    },
+    {
+      "name": "SAMAMBAIA-10",
+      "responses": 3
+    },
+    {
+      "name": "RECANTO DAS EMAS",
+      "responses": 27
+    },
+    {
+      "name": "SANTA MARIA",
+      "responses": 8
+    },
+    {
+      "name": "CEILÂNDIA-30",
+      "responses": 24
+    },
+    {
+      "name": "SÃO SEBASTIÃO",
+      "responses": 8
+    },
+    {
+      "name": "GAMA",
+      "responses": 19
+    },
+    {
+      "name": "TAGUATINGA",
+      "responses": 2
+    }
+  ],
+  "cargo": {
+    "Membro": 155,
+    "Pastor": 8,
+    "Obreiro": 19
+  },
+  "departments": {
+    "Nenhum": 58,
+    "UFADEB": 54,
+    "UDVADEB": 26,
+    "UMADEB": 49,
+    "UNAADEB": 8
+  },
+  "politics": {
+    "Não": 61,
+    "Sim": 120
+  },
+  "evangelical": {
+    "Sim": 147,
+    "Não": 20
+  }
+}
