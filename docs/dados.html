@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f6fbff">
+<title>Dados · Mapa das Igrejas · ADEB</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap">
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <script type="module" crossorigin src="./assets/main-i9Pul_B6.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-CcSz94zs.css">
+</head>
+<body data-view="dashboard">
+<header class="topbar">
+<div class="brand">
+<span class="brand-icon" aria-hidden="true">
+<svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7">
+<path d="M16 2v9m-4-5h8M5 29V17l11-7 11 7v12M2 29h28M12 29v-9h8v9M8 18v4m16-4v4"/>
+<path d="M16 2v9m-4-5h8" stroke="#e4c600"/>
+</svg>
+</span>
+<div>
+<h1>Mapa das Igrejas</h1>
+<p class="tagline">ADEB · Painel de cadastros</p>
+</div>
+</div>
+<div class="sync">
+<a class="back" href="./index.html">← Início</a>
+<span class="sync-time" id="sync-time">
+</span>
+<span class="badge" id="sync-badge" role="status">
+<span class="dot">
+</span>Dados do Forms</span>
+
+</div>
+</header>
+<main>
+<section id="dashboard" class="dashboard" tabindex="-1" aria-labelledby="dashboard-title">
+<div class="section-heading"><p class="eyebrow">Visão completa</p><h2 id="dashboard-title">Todas as informações em um só painel</h2><p>Confira as unidades cadastradas, as respostas recebidas e o perfil da comunidade.</p></div>
+<div class="stats">
+<div class="stat"><div class="stat-value mono-num" id="stat-churches">—</div><div class="stat-label">Igrejas / unidades no Forms</div></div>
+<div class="stat"><div class="stat-value mono-num" id="stat-filled">—</div><div class="stat-label">Com dados recebidos</div></div>
+<div class="stat"><div class="stat-value mono-num" id="stat-pending">—</div><div class="stat-label">Ainda sem dados</div></div>
+<div class="stat"><div class="stat-value mono-num" id="stat-total">—</div><div class="stat-label">Total de cadastros</div></div>
+</div>
+<section class="coverage"><div><strong id="coverage-label">Aguardando dados</strong><p id="counting-note">Uma unidade por aba de respostas da planilha.</p></div><progress id="coverage-bar" max="100" value="0" aria-label="Unidades com dados"></progress></section>
+<nav class="section-nav" aria-label="Ir para uma análise">
+<a href="#panel-geral">Visão geral</a>
+<a href="#panel-setores">Igrejas / unidades</a>
+<a href="#panel-departamentos">Departamentos</a>
+<a href="#panel-engajamento">Engajamento</a>
+</nav>
+<div class="analysis-section" id="panel-geral" tabindex="-1" role="region" aria-labelledby="heading-geral"><h2 class="analysis-heading" id="heading-geral">Perfil da comunidade</h2>
+<section class="chart-card">
+<h2 class="chart-title">Cadastros por unidade</h2>
+<p class="chart-sub">Distribuição dos cadastros recebidos pelo formulário</p>
+<div class="chart-box">
+<canvas id="chart-overview" role="img" aria-label="Cadastros por unidade" hidden>
+</canvas>
+<div class="empty">
+<strong>Aguardando dados da planilha</strong>
+<span>Os gráficos aparecem após a conexão.</span>
+</div>
+</div>
+</section>
+<section class="chart-card">
+<h2 class="chart-title">Cargo ministerial</h2>
+<p class="chart-sub">Quantidade de cadastros por cargo</p>
+<div class="chart-box">
+<canvas id="chart-cargo" role="img" aria-label="Cargo ministerial" hidden>
+</canvas>
+<div class="empty">
+<strong>Aguardando dados da planilha</strong>
+<span>Os gráficos aparecem após a conexão.</span>
+</div>
+</div>
+</section>
+<div class="chart-row">
+<section class="chart-card">
+<h2 class="chart-title">São evangélicos?</h2>
+<p class="chart-sub">Perfil religioso dos cadastros que responderam</p>
+<div class="chart-box">
+<canvas id="chart-evangelico" role="img" aria-label="São evangélicos?" hidden>
+</canvas>
+<div class="empty">
+<strong>Aguardando dados da planilha</strong>
+<span>Os gráficos aparecem após a conexão.</span>
+</div>
+</div>
+</section>
+<section class="chart-card">
+<h2 class="chart-title">Interesse por política</h2>
+<p class="chart-sub">Participação entre os cadastros que responderam</p>
+<div class="chart-box">
+<canvas id="chart-politica" role="img" aria-label="Interesse por política" hidden>
+</canvas>
+<div class="empty">
+<strong>Aguardando dados da planilha</strong>
+<span>Os gráficos aparecem após a conexão.</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+<div class="analysis-section" id="panel-setores" tabindex="-1" role="region" aria-labelledby="heading-setores" hidden><h2 class="analysis-heading" id="heading-setores">Igrejas e unidades</h2><section class="chart-card"><h2 class="chart-title">Igrejas / unidades: acompanhamento das respostas</h2><div id="church-list" class="church-list"></div></section>
+<section class="chart-card">
+<h2 class="chart-title">Cadastros por unidade</h2>
+<p class="chart-sub">Ranking de todas as abas, incluindo as que ainda não receberam respostas</p>
+<div class="chart-box" style="height:480px">
+<canvas id="chart-setores" role="img" aria-label="Cadastros por unidade" hidden>
+</canvas>
+<div class="empty">
+<strong>Aguardando dados da planilha</strong>
+<span>Os gráficos aparecem após a conexão.</span>
+</div>
+</div>
+</section>
+</div>
+<div class="analysis-section" id="panel-departamentos" tabindex="-1" role="region" aria-labelledby="heading-departamentos" hidden><h2 class="analysis-heading" id="heading-departamentos">Participação nos departamentos</h2>
+<section class="chart-card">
+<h2 class="chart-title">Participação nos departamentos</h2>
+<p class="chart-sub">UFADEB, UMADEB, UNAADEB, UDVADEB e sem departamento</p>
+<div class="chart-box" style="height:360px">
+<canvas id="chart-departamentos" role="img" aria-label="Participação nos departamentos" hidden>
+</canvas>
+<div class="empty">
+<strong>Aguardando dados da planilha</strong>
+<span>Os gráficos aparecem após a conexão.</span>
+</div>
+</div>
+</section>
+</div>
+<div class="analysis-section" id="panel-engajamento" tabindex="-1" role="region" aria-labelledby="heading-engajamento" hidden><h2 class="analysis-heading" id="heading-engajamento">Engajamento da comunidade</h2>
+<section class="chart-card">
+<h2 class="chart-title">Interesse por política</h2>
+<p class="chart-sub">Distribuição das respostas Sim e Não; respostas contraditórias não entram no cálculo</p>
+<div class="chart-box" style="height:320px">
+<canvas id="chart-engajamento" role="img" aria-label="Interesse por política" hidden>
+</canvas>
+<div class="empty">
+<strong>Aguardando dados da planilha</strong>
+<span>Os gráficos aparecem após a conexão.</span>
+</div>
+</div>
+</section>
+</div>
+</section>
+</main>
+</body>
+</html>
+
