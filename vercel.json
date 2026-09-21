@@ -1,0 +1,10 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "functions": {
+    "api/painel.js": { "maxDuration": 60 }
+  },
+  "headers": [
+    { "source": "/api/painel", "headers": [{ "key": "Cache-Control", "value": "no-store" }] }
+  ]
+}

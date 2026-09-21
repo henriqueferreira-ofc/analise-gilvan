@@ -9,10 +9,8 @@ let presenting = !reducedMotion.matches;
 let nextRefresh = Date.now();
 let highlight = 0;
 const source = import.meta.env.VITE_DASHBOARD_DATA_URL || `${import.meta.env.BASE_URL}api/painel`;
-const snapshotSource = `${import.meta.env.BASE_URL}dados-painel.json`;
 const refreshInterval = 5000;
 let live = false;
-let useSnapshot = false;
 function dataFingerprint(payload) {
   return JSON.stringify([payload.churches, payload.cargo, payload.departments, payload.politics, payload.evangelical, payload.countingBasis]);
 }
@@ -110,14 +108,10 @@ async function refresh() {
   if (busy) return;
   busy = true;
   try {
-    let response = await fetch(useSnapshot ? snapshotSource : source, { cache: 'no-store', signal: AbortSignal.timeout(30000) });
-    // Hospedagens estáticas não executam o servidor de conexão.
-    if (!import.meta.env.VITE_DASHBOARD_DATA_URL && (response.status === 404 || response.headers.get('content-type')?.includes('text/html'))) {
-      useSnapshot = true;
-      response = await fetch(snapshotSource, { cache: 'no-store', signal: AbortSignal.timeout(15000) });
-    }
+    const response = await fetch(source, { cache: 'no-store', signal: AbortSignal.timeout(30000) });
     if (!response.ok) throw new Error('Fonte indisponível.');
     const payload = validate(await response.json());
+    if (import.meta.env.PROD && payload.live !== true) throw new Error('Fonte online não conectada.');
     live = payload.live === true;
     if (dataFingerprint(payload) !== (data && dataFingerprint(data))) render(payload);
     data = payload;
@@ -126,6 +120,9 @@ async function refresh() {
     setBadge(live ? 'Fonte conectada' : 'Dados importados', `badge ${live ? 'badge-live' : ''}`);
   } catch {
     setBadge('Falha na atualização', 'badge badge-error');
+    $('sync-time').textContent = data
+      ? `Sem sincronização · última leitura em ${new Date(data.checkedAt || data.updatedAt).toLocaleString('pt-BR')}`
+      : 'Sem conexão com a planilha · tentando novamente';
     if ($('monitor-state')) $('monitor-state').textContent = data ? 'Exibindo última leitura' : 'Aguardando dados';
   } finally {
     busy = false;

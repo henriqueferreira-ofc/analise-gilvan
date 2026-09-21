@@ -61,7 +61,7 @@ A interface verifica a fonte a cada 5 segundos, ao retornar à janela e quando a
 
 O servidor local (`server/painel.mjs`) consulta um Apps Script autorizado na conta do responsável. A configuração fica em `.env.local`, com `PAINEL_APPS_SCRIPT_URL` e `PAINEL_SYNC_KEY`. A chave não é exposta no frontend. Siga [Ativar a conexão](integracao/ATIVAR.md). Sem configuração, o servidor informa que a leitura é da cópia importada; não simula uma conexão ao vivo. Falhas preservam os dados visíveis, exibem erro e disparam uma nova tentativa após 5 segundos. Várias páginas compartilham uma única consulta em voo e um cache de até 5 segundos.
 
-`npm run dev` e `npm run preview` incluem esse servidor. Um site somente estático usa a cópia JSON e precisa de um backend separado para atualização contínua. `VITE_DASHBOARD_DATA_URL` permite apontar para um endpoint agregado compatível (campos `live` e `checkedAt` indicam o estado da fonte). O intervalo de 5 segundos é uma frequência de consulta; o Google pode levar mais tempo para disponibilizar uma alteração.
+`npm run dev` e `npm run preview` incluem esse servidor. A versão de produção exige fonte online e não recorre à cópia JSON quando a API falha. A função `api/painel.js` permite executar a conexão na Vercel, sem depender do computador local. Para manter a interface no GitHub Pages, `VITE_DASHBOARD_DATA_URL` aponta para essa função publicada. Veja [configuração da hospedagem online](integracao/HOSPEDAGEM.md). O intervalo de 5 segundos é uma frequência de consulta; o Google pode levar mais tempo para disponibilizar uma alteração.
 
 Verificação: `node --test tests/sync.test.mjs`, `npm run lint`, `npm run build`.
 
