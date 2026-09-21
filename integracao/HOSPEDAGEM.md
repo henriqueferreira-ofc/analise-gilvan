@@ -1,5 +1,12 @@
 # Conexão online independente do computador
 
+Produção: https://analise-gilvan.vercel.app/.
+API: https://analise-gilvan.vercel.app/api/painel.
+As variáveis privadas estão configuradas na Vercel. O build do GitHub Pages
+usa `.env.pages` para consultar essa mesma API. Execute `npm run build:docs`
+e publique `docs/` ao alterar a interface. Novas respostas da planilha não
+precisam de novo build.
+
 O GitHub Pages serve arquivos estáticos. O diretório `docs/` não executa o
 servidor Vite nem lê `.env.local`. Reconstruir esse diretório apenas troca uma
 cópia dos dados e não resolve atualização contínua.
