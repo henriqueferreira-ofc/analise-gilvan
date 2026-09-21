@@ -22,7 +22,7 @@ export function createReader({ endpoint, key, snapshotPath, fetchImpl = fetch, n
       if (endpoint) {
         const response = await fetchImpl(endpoint, {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ key }), redirect: 'follow', signal: AbortSignal.timeout(25000), cache: 'no-store',
+          body: JSON.stringify({ key }), redirect: 'follow', signal: AbortSignal.timeout(55000), cache: 'no-store',
         });
         if (!response.ok) throw new Error('A conexão com o Google falhou.');
         payload = await response.json();
@@ -51,7 +51,12 @@ export function painelPlugin(env, root) {
       res.setHeader('Content-Type', 'application/json; charset=utf-8');
       if (req.method !== 'GET') { res.statusCode = 405; res.end('{"error":"Método não permitido"}'); return; }
       try { res.end(JSON.stringify(await read())); }
-      catch { res.statusCode = 502; res.end('{"error":"Não foi possível consultar a planilha. Verifique a autorização da conexão."}'); }
+      catch (error) {
+        res.statusCode = error.name === 'TimeoutError' ? 504 : 502;
+        res.end(JSON.stringify({ error: error.name === 'TimeoutError'
+          ? 'O Google demorou para responder. Uma nova tentativa será feita automaticamente.'
+          : 'Não foi possível consultar a planilha. Uma nova tentativa será feita automaticamente.' }));
+      }
     });
   };
   return { name: 'painel-planilha', configureServer: install, configurePreviewServer: install };

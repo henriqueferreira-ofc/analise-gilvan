@@ -107,8 +107,12 @@ function render(payload) {
 async function refresh() {
   if (busy) return;
   busy = true;
+  if (!data) {
+    setBadge('Consultando planilha…', 'badge');
+    $('sync-time').textContent = 'Aguardando resposta do Google';
+  }
   try {
-    const response = await fetch(source, { cache: 'no-store', signal: AbortSignal.timeout(30000) });
+    const response = await fetch(source, { cache: 'no-store', signal: AbortSignal.timeout(65000) });
     if (!response.ok) throw new Error('Fonte indisponível.');
     const payload = validate(await response.json());
     if (import.meta.env.PROD && payload.live !== true) throw new Error('Fonte online não conectada.');
